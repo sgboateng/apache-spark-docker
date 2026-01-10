@@ -11,16 +11,22 @@ class AbstractLoader:
 class AirPodsAfterIphoneLoader(AbstractLoader):
 
     def sink(self):
+        # Create root directory
+        OUTPUT_DATA_ROOT = "/opt/spark-data/output"
+        
         get_sink_source(
             sink_type = "csv", 
             dataframe = self.transformed_DFs, 
-            path = "../spark-data/output/", 
+            path = f"{OUTPUT_DATA_ROOT}/apple-analysis/", 
             method = "overwrite"
         ).load_data_frame()
 
 class OnlyAirpodsAndIPhoneLoader(AbstractLoader):
 
     def sink(self):
+        # Create root directory
+        OUTPUT_DATA_ROOT = "/opt/spark-data/output"
+        
         params = {
             "partition_by_columns": ["location"]
         }
@@ -28,7 +34,7 @@ class OnlyAirpodsAndIPhoneLoader(AbstractLoader):
         get_sink_source(
             sink_type = "parquet_with_partitions", 
             dataframe = self.transformed_DFs, 
-            path = "../spark-data/output/", 
+            path = f"{OUTPUT_DATA_ROOT}/apple-analysis/", 
             method = "overwrite", 
             params = params
         ).load_data_frame()
