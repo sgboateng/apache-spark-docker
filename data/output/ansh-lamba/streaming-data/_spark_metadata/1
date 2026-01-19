@@ -1,0 +1,2 @@
+v1
+{"path":"file:///opt/spark-data/output/ansh-lamba/streaming-data/part-00000-9ebc2057-7124-48bf-a036-1b652a4a0e25-c000.snappy.parquet","size":5185,"isDir":false,"modificationTime":1768841423286,"blockReplication":1,"blockSize":33554432,"action":"add"}
